@@ -99,8 +99,8 @@ var (
 		pg_stat_statements.calls as calls_total,
 		pg_stat_statements.total_exec_time / 1000.0 as seconds_total,
 		pg_stat_statements.rows as rows_total,
-		pg_stat_statements.blk_read_time / 1000.0 as block_read_seconds_total,
-		pg_stat_statements.blk_write_time / 1000.0 as block_write_seconds_total
+		pg_stat_statements.shared_blk_read_time / 1000.0 as block_read_seconds_total,
+		pg_stat_statements.shared_blk_write_time / 1000.0 as block_write_seconds_total
 		FROM pg_stat_statements
 	JOIN pg_database
 		ON pg_database.oid = pg_stat_statements.dbid
